@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import posts from "../data/posts";
+---
+
+<Layout>
+  <section class="text-white py-10">
+    <h1 class="text-4xl font-bold text-center mb-8">Architectural Daily</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map(post => (
+        <a href={`/posts/${post.slug}`} class="bg-gray-800 p-4 rounded-2xl shadow-lg hover:bg-gray-700 transition">
+          <h2 class="text-xl font-semibold mb-2">{post.title}</h2>
+          <p class="text-sm text-gray-400">{post.date}</p>
+          <p class="mt-2 text-gray-300">{post.excerpt}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>
